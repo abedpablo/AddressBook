@@ -13,7 +13,8 @@ class AddressBook:
               first_name    TEXT NOT NULL,
               email         TEXT,
               phone         TEXT,
-              address       TEXT
+              address       TEXT,
+              createtime        TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
               )"""
             )
         db.commit()
@@ -56,10 +57,26 @@ class AddressBook:
         db.commit()
         c.close()
 
-    def list_all_records(self):
+    def list_records(self):
         db = sqlite3.connect(self.dbname)
         c = db.cursor()
         c.execute('SELECT * from contacts')
+        contacts = c.fetchall()
+        c.close()
+        return contacts
+
+    def list_records_alpha(self):
+        db = sqlite3.connect(self.dbname)
+        c = db.cursor()
+        c.execute('SELECT * from contacts ORDER BY last_name')
+        contacts = c.fetchall()
+        c.close()
+        return contacts
+
+    def list_records_date(self):
+        db = sqlite3.connect(self.dbname)
+        c = db.cursor()
+        c.execute('SELECT * from contacts ORDER BY createtime')
         contacts = c.fetchall()
         c.close()
         return contacts
