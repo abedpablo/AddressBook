@@ -1,13 +1,16 @@
 # address-book
 ## Description
-A Python 3 command-line address book program using a Sqlite database to store information.
+A Python 3 command-line address book program using a Sqlite database to 
+store information.
 
 ## Overview
 This project is a basic command line address book application written
 in Python. This can be used to store personal information of colleagues 
 including name, address, phone number, and email address. One does not
-have to enter all information for a person except first and last name. 
-The program prompts the user for each piece of contact information.
+have to enter all information for a person when creating the contact 
+except first and last name. The program then prompts the user for each
+piece of contact information. When the program is first ran, it invokes
+a AddressBook object and creates a database on the local machine.
 
 To use the program one must download the repository, move to the directory
 and then run the program.
